@@ -1,0 +1,47 @@
+<nav class=" max-w-4xl mx-auto mt-2 rounded-full bg-neutral-800 px-12 py-4 " data-bs-theme="dark">
+  <div class=" w-full flex items-center justify-between ">
+    <a class=" text-base font-bold text-white uppercase" href="#">Blogify</a>
+
+    <div class=" " id="navbarNavDropdown">
+      <ul class="flex items-center gap-8 uppercase text-base font-normal text-neutral-400">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <% if (locals.user) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/addBlog">Add blog</a>
+          </li>
+
+          <% } %>
+
+
+      </ul>
+    </div>
+
+    <div class="dropdown flex items-center gap-4 font-semibold text-white  gap-4 ">
+
+      <% if (locals.user) { %>
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= user.fullName %>
+        </a>
+        <ul class="dropdown-menu text-red-400">
+          <li><a class="dropdown-item" href="/logout">logout </a></li>
+        </ul>
+
+        <% } else { %>
+          <ul class="dropdown-menu flex items-center gap-4 ">
+            <li class="bg-neutral-100 text-shadow-xs px-4 py-2 text-black rounded-xl  active:scale-98 hover:bg-neutral-200">
+              <a class="nav-link active" aria-current="page" href="/login">Login</a>
+            </li>
+            <li class="bg-blue-500 px-4 py-2 text-shadow-xs text-black rounded-xl active:scale-98 hover:bg-blue-600">
+              <a class="nav-link active" aria-current="page" href="/signup">Signup</a>
+            </li>
+          </ul>
+          <% } %>
+    </div>
+
+
+
+
+  </div>
+</nav>

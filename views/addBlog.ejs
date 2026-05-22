@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("./partials/head") %>
+
+</head>
+<body>
+    <%- include("./partials/navbar") %>
+            
+ <main class="max-w-6xl mt-4  min-h-screen mx-auto w-full flex items-center justify-center ">
+    <form action="/addBlog" method="POST" enctype="multipart/form-data"
+    class="min-w-xl  bg-neutral-300/30 px-6 py-8 rounded-xl mx-auto flex flex-col items-start gap-4">
+    <h2 class="text-xl font-bold text-neutral-900 uppercase mb-6  text-center">Add a new blog</h2>
+      
+
+
+    <label class="text-base font-semibold text-black flex items-center ">Title: </label>
+    <input class=" w-full bg-neutral-50 border-none rounded-md px-4 py-2 placeholder:text-base placeholder:text-neutral-400 placeholder:font-medium"  
+    type="file" 
+    name="coverImageUrl" 
+    placeholder="upload your cover Image (Optional)" 
+   
+    />
+       <label class="text-base font-semibold text-black flex items-center ">Title: </label>
+       <input class=" w-full bg-neutral-50 border-none rounded-md px-4 py-2 placeholder:text-base placeholder:text-neutral-400 placeholder:font-medium"  
+       type="text" 
+       name="title" 
+       placeholder="Enter your title" 
+       required
+       />
+           
+       
+       <label class="text-base font-semibold text-black flex items-center " >Description: </label>
+       <textarea class="w-full bg-neutral-50 border-none rounded-md px-4 py-2 placeholder:text-base placeholder:text-neutral-400 placeholder:font-medium"  
+       name="description" 
+       placeholder="enter desciption" 
+       required></textarea>
+           
+
+       
+       <button  class=" bg-linear-to-b from-blue-500 to-blue-700 px-4 py-2 w-full rounded-xl text-shadow-xs text-white rounded-lg active:scale-98 hover:bg-blue-700 cursor-pointer" type="submit">upload</button>
+   </form>
+
+   </main>
+</body>
+</html>

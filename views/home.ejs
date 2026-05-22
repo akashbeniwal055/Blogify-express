@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+
+    <%- include("./partials/head") %>
+    
+</head>
+<body>
+    
+        <%- include("./partials/navbar") %> 
+        <h1>blogify homepage</h1>
+
+ <main class="max-w-6xl mt-4  min-h-screen mx-auto w-full flex items-start gap-4 ">
+   
+
+    <% if (locals.allBlogs) { %>
+
+
+
+        <% allBlogs.forEach(blog => { %>
+
+            <div class="size-80 rounded-xl bg-neutral-300 flex flex-col items-center gap-4 px-1 py-1 pb-8">
+                <div class="w-full h-40   bg-neutral-400 rounded-[11px] overflow-hidden ">
+                    <img class="w-full h-full object-cover" 
+                    src="<%= blog.coverImageUrl %>" alt="default" />
+               
+                   
+                </div>
+        
+                <div class=" w-full h-20  p-2 rounded-xl ">
+                    <h3 class="text-base font-semibold text-black " >
+                        <%= blog.title %> 
+                    </h3>
+                </div>
+    
+              
+    
+                <div class="text-base font-semibold text-black ">
+                    <a href="/blog/<%= blog._id %> " class="bg-blue-500 px-4 py-2 text-shadow-xs text-black rounded-xl active:scale-98 hover:bg-blue-600" >View more</a>
+                </div>
+            </div>
+         
+        <% }) %>
+        
+    <% } %>
+    
+    
+ </main>
+    
+    
+
+</body>
+</html>
