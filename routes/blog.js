@@ -23,7 +23,29 @@ router.get("/addBlog", (req, res) => {
     res.render("addBlog",{user:req.user})
   })
   
+
+  router.get("/blog/:id", async (req,res)=>{
+    const blog = await BLOG.findById(req.params.id)
+    if (!blog){
+      return res.status(404).send("404 page not found")
+    }
+    
+    res.render("blog",{blog:blog,user:req.user})
+
+  })
   
+
+  router.get("/blog/delete/:id", async (req,res)=>{
+    const blog = await BLOG.findOneAndDelete({_id:req.params.id})
+    if (!blog){
+      return res.status(404).send("404 blog not found")
+    }
+    
+    return res.redirect("/")
+
+  })
+  
+
 router.post("/addBlog", upload.single("coverImageUrl") ,async (req, res) => {
     const { title,description} = req.body
 
@@ -31,11 +53,11 @@ router.post("/addBlog", upload.single("coverImageUrl") ,async (req, res) => {
       title:title,
       description:description,
       createdBy:req.user._id,
-      coverImageUrl:req.file ? `/upload/${req.file.filename}` : "images/default.png" ,
+      coverImageUrl:req.file ? `/upload/${req.file.filename}` : "/image/default.png" ,
     
   
     })
- console.log(req.file)
+ 
     
     
     return res.redirect("/");
