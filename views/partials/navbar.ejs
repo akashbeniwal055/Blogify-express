@@ -1,11 +1,14 @@
 <nav class=" max-w-4xl mx-auto mt-2 rounded-full bg-neutral-800 px-12 py-4 " data-bs-theme="dark">
   <div class=" w-full flex items-center justify-between ">
-    <a class=" text-base font-bold text-white uppercase" href="#">Blogify</a>
+    <a class="flex items-center gap-2  " href="#">
+      <div class="text-white "> <%- include("./brandlogo")  %> </div>
+      <h4 class="text-base font-bold text-white uppercase">Blogify</h4>
+    </a>
 
     <div class=" " id="navbarNavDropdown">
       <ul class="flex items-center gap-8 uppercase text-base font-normal text-neutral-400">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <% if (locals.user) { %>
           <li class="nav-item">

@@ -1,5 +1,6 @@
 const { Router } = require("express")
 const BLOG = require("../models/blogs");
+const COMMENT = require("../models/comment");
 
 const router = Router()
 
@@ -25,12 +26,13 @@ router.get("/addBlog", (req, res) => {
   
 
   router.get("/blog/:id", async (req,res)=>{
-    const blog = await BLOG.findById(req.params.id)
+    const blog = await BLOG.findById(req.params.id).populate('createdBy')
+    const comments  = await COMMENT.find({blogId:req.params.id}).populate('createdBy') 
     if (!blog){
       return res.status(404).send("404 page not found")
     }
-    
-    res.render("blog",{blog:blog,user:req.user})
+
+    res.render("blog",{blog,user:req.user,comments})
 
   })
   
@@ -57,13 +59,21 @@ router.post("/addBlog", upload.single("coverImageUrl") ,async (req, res) => {
     
   
     })
- 
-    
-    
     return res.redirect("/");
   
   })
 
+
+  router.post("/comment/:blogId", async (req,res)=>{
+    await COMMENT.create({
+           content:req.body.content,
+           blogId:req.params.blogId,
+           createdBy:req.user._id,
+
+    })
+
+    return res.redirect(`/blog/${req.params.blogId}`)
+  })
    
 
   module.exports = router

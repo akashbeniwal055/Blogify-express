@@ -30,7 +30,7 @@ const userSchema = new Schema({
     },
     profileImageUrl: {
         type: String,
-        default: "../public/images/default.png",
+        default:"/image/profile.webp",
     }
 
 },{timestamps:true})
