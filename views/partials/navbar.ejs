@@ -1,12 +1,12 @@
-<nav class=" max-w-4xl mx-auto mt-2 rounded-full bg-neutral-800 px-12 py-4 " data-bs-theme="dark">
+<nav class=" sticky top-4 left-0  max-w-7xl mx-auto mt-4 rounded-full bg-black px-12 py-4 shadow-xl " data-bs-theme="dark">
   <div class=" w-full flex items-center justify-between ">
     <a class="flex items-center gap-2  " href="#">
       <div class="text-white "> <%- include("./brandlogo")  %> </div>
-      <h4 class="text-base font-bold text-white uppercase">Blogify</h4>
+      <h4 class="text-lg font-bold text-white uppercase">Blogify</h4>
     </a>
 
     <div class=" " id="navbarNavDropdown">
-      <ul class="flex items-center gap-8 uppercase text-base font-normal text-neutral-400">
+      <ul class="flex items-center gap-8  text-sm font-normal text-neutral-50">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
@@ -33,10 +33,10 @@
 
         <% } else { %>
           <ul class="dropdown-menu flex items-center gap-4 ">
-            <li class="bg-neutral-100 text-shadow-xs px-4 py-2 text-black rounded-xl  active:scale-98 hover:bg-neutral-200">
+            <li class="bg-neutral-100  px-4 py-2  text-base font-normal  text-black rounded-full   active:scale-98 hover:bg-neutral-200">
               <a class="nav-link active" aria-current="page" href="/login">Login</a>
             </li>
-            <li class="bg-blue-500 px-4 py-2 text-shadow-xs text-black rounded-xl active:scale-98 hover:bg-blue-600">
+            <li class="bg-orange-500 px-4 py-2 text-base font-normal text-white rounded-full active:scale-98 hover:bg-orange-600">
               <a class="nav-link active" aria-current="page" href="/signup">Signup</a>
             </li>
           </ul>
